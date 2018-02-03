@@ -1,0 +1,75 @@
+.live {
+    
+}
+
+.timer {
+    text-align: center;
+    width: 100px;
+    font-size: 25px;
+    background: #fafafa;
+    border: 2px solid #f1f1f1;
+    border-radius: 3px;
+}
+
+.viewer-count {
+
+}
+
+.timer-buttons {
+
+}
+
+.live-analytics {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.analytics-box-1 {
+  background: #e60000;
+  width: 350px;
+  height: 225px;
+}
+
+.analytics-box-2 {
+  background: #ff6600;
+  width: 350px;
+  height: 225px;
+}
+
+.analytics-box-3 {
+  background: #000066;
+  width: 350px;
+  height: 225px;
+}
+
+.analytics-box-4 {
+  background: #e6e600;
+  width: 350px;
+  height: 225px;
+}
+
+.analytics-box-5 {
+  background: #2eb82e;
+  width: 350px;
+  height: 225px;
+}
+
+.analytics-box-6 {
+  background: #808080;
+  width: 350px;
+  height: 225px;
+}
+
+.analytics-box-7 {
+  background: #00ace6;
+  width: 350px;
+  height: 225px;
+}
+
+.analytics-box-8 {
+  background: #9900cc;
+  width: 350px;
+  height: 225px;
+}

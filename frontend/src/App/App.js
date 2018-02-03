@@ -9,16 +9,18 @@ class App extends Component {
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
  
     if (navigator.getUserMedia) {       
-        navigator.getUserMedia({video: true}, handleVideo, videoError);
+        navigator.getUserMedia({video: true}, (stream) => {
+          video.src = window.URL.createObjectURL(stream)
+        }, (error) => {
+          //do something
+        })
     }
-    
-    function handleVideo(stream) {
-        video.src = window.URL.createObjectURL(stream);
-    }
-    console.log(video)
   }
 
   render() {
+    navigator.permissions.query({name:'geolocation'}).then(permissionStatus => {
+      console.log(permissionStatus)
+    })
     return (
       <div className="App">
         <header className="App-header">

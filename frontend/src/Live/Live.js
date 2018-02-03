@@ -7,7 +7,10 @@ class Live extends Component {
         super();
         this.state= {
             startTime: Date.now(),
-            elapsed: 0
+            elapsed: 0,
+            pause: false,
+            pauseTime: 0,
+            pauseBtnTxt: "Pause"
         }
         console.log(this.state.startTime)
     }
@@ -19,8 +22,28 @@ class Live extends Component {
         })
     }
 
+    pauseSession(){
+        if (this.state.pause){
+          console.log("I am now going!");
+          this.setState({pauseBtnTxt: "Pause"});
+          const startTime = new Date()
+          this.setState({
+              startTime
+          })
+        }
+        else{
+          console.log("I am now paused")
+          this.setState({pauseBtnTxt: "Continue"});
+          this.setState({pauseTime: this.state.elapsed});
+        }
+        this.setState({pause: !this.state.pause});
+    }
+
+    endSession() {
+      console.log("End Session");
+    }
     componentDidMount() {
-        this.timer = setInterval(() => this.tick(), 100);
+      this.timer = setInterval(() => this.tick(), 100);
     }
 
     componentWillUnmount(){
@@ -28,7 +51,9 @@ class Live extends Component {
     }
 
     tick() {
-        this.setState({elapsed: Date.now() - this.state.startTime});
+        if (!this.state.pause){
+            this.setState({elapsed: Date.now() - this.state.startTime + this.state.pauseTime});
+        }
     }
         
     render() {
@@ -37,8 +62,10 @@ class Live extends Component {
         return(
             <div className="Live">
                 <div className="timer">
-                    <div>{Math.floor(display/60)}:{("0" + Math.round(display%60)).substr(-2)}</div>
+                    {Math.floor(display/60)}:{("0" + Math.round(display%60)).substr(-2)}
                 </div>
+                <Button bsStyle="warning" className="pause" onClick={() => this.pauseSession()}>{this.state.pauseBtnTxt}</Button>
+                <Button bsStyle="danger" className="stop" onClick={() => this.endSession()}>Stop</Button>
             </div>
         )
     }

@@ -1,7 +1,7 @@
 .Live {
     text-align: center;
 }
-.Timer { 
+.timer { 
     position: absolute;
     top: 5%;
     left: 2%;
@@ -10,4 +10,17 @@
     border:1px;
     border-style:solid;
     border-color:black;
+}
+.pause {
+    position: absolute;
+    width: 124px;
+    top: 5%;
+    right: 120px;
+    font-size: 25px;
+}
+.stop {
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    font-size: 25px;
 }

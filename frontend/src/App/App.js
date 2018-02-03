@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
-import logo from '../logo.svg'
-import './App.css'
-import Live from "../Live/Live";
+import Live from '../Live/Live'
+import Home from '../Home/Home'
 
 class App extends Component {
   
@@ -14,33 +13,12 @@ class App extends Component {
       isOnResults: false
     }
   }
-  componentDidMount() {
-    if (this.state.isOnHome){
-      const video = document.querySelector("#videoElement")
-      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
-      
-      if (navigator.getUserMedia) {       
-          navigator.getUserMedia({video: true}, (stream) => {
-            video.src = window.URL.createObjectURL(stream)
-          }, (error) => {
-            //do something
-          })
-      }
-    }
-}
+
   render() {
     if (this.state.isOnLive) {
-      return (<Live/>);
+      return <Live/>
     } 
-    return (
-      <div className="App">
-        <Button bsStyle="success" className="start-button" onClick={()=>this.setState({isOnLive: true})}>
-        Start!
-        </Button>
-        <div className="video-mask" />
-        <video autoPlay="true" id="videoElement" className="video-element" />
-      </div>
-    );
+    return <Home />
   }
 }
 

@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
-import D3Chart from '../component/D3Chart/D3Chart'
 import './Live.css'
 
 class Live extends Component {
-<<<<<<< HEAD
     constructor() {
         super();
         this.state= {
@@ -39,19 +37,10 @@ class Live extends Component {
         return(
             <div className="Live">
                 <div className="timer">
-                    <div>{display}</div>
+                    <div>{Math.floor(display/60)}:{("0" + Math.round(display%60)).substr(-2)}</div>
                 </div>
             </div>
         )
     }
-=======
-  render() {
-    return(
-      <div className="Live">
-        <D3Chart />
-      </div>
-    )
-  }
->>>>>>> 63ce3ef80b46edef43ade0e8ecc6453fd4303aa4
 }
 export default Live;

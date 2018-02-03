@@ -1,7 +1,13 @@
 .Live {
     text-align: center;
 }
-.timer { 
-    top: 10%;
+.Timer { 
+    position: absolute;
+    top: 5%;
+    left: 2%;
     width: 100px;
+    font-size: 25px;
+    border:1px;
+    border-style:solid;
+    border-color:black;
 }

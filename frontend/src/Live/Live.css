@@ -1,3 +1,7 @@
 .Live {
     text-align: center;
 }
+.timer { 
+    top: 10%;
+    width: 100px;
+}

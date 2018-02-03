@@ -2,9 +2,18 @@ import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
 import logo from '../logo.svg'
 import './App.css'
+import Live from "../Live/Live";
 
 class App extends Component {
-
+  
+  constructor() {
+    super()
+    this.state = {
+      isOnHome: true,
+      isOnLive: false,
+      isOnResults: false
+    }
+  }
   componentDidMount() {
     const video = document.querySelector("#videoElement")
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
@@ -19,9 +28,14 @@ class App extends Component {
   }
 
   render() {
+    if (this.state.isOnLive) {
+      return (<Live/>);
+    } 
     return (
       <div className="App">
-        <Button bsStyle="success" className="start-button">Start!</Button>
+        <Button bsStyle="success" className="start-button" onClick={()=>this.setState({isOnLive: true})}>
+        Start!
+        </Button>
         <div className="video-mask" />
         <video autoPlay="true" id="videoElement" className="video-element" />
       </div>

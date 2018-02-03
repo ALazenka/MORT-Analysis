@@ -9,24 +9,25 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      isOnHome: true,
-      isOnLive: false,
+      isOnHome: false,
+      isOnLive: true,
       isOnResults: false
     }
   }
   componentDidMount() {
-    const video = document.querySelector("#videoElement")
-    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
- 
-    if (navigator.getUserMedia) {       
-        navigator.getUserMedia({video: true}, (stream) => {
-          video.src = window.URL.createObjectURL(stream)
-        }, (error) => {
-          //do something
-        })
+    if (this.state.isOnHome){
+      const video = document.querySelector("#videoElement")
+      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+      
+      if (navigator.getUserMedia) {       
+          navigator.getUserMedia({video: true}, (stream) => {
+            video.src = window.URL.createObjectURL(stream)
+          }, (error) => {
+            //do something
+          })
+      }
     }
-  }
-
+}
   render() {
     if (this.state.isOnLive) {
       return (<Live/>);

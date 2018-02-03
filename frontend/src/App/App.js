@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import logo from '../logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { Button } from 'react-bootstrap'
+import logo from '../logo.svg'
+import './App.css'
 
 class App extends Component {
 
@@ -18,18 +19,11 @@ class App extends Component {
   }
 
   render() {
-    navigator.permissions.query({name:'geolocation'}).then(permissionStatus => {
-      console.log(permissionStatus)
-    })
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          <video autoPlay="true" id="videoElement" />
-        </p>
+        <Button bsStyle="success" className="start-button">Start!</Button>
+        <div className="video-mask" />
+        <video autoPlay="true" id="videoElement" className="video-element" />
       </div>
     );
   }

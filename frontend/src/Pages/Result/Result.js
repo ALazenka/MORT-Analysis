@@ -153,6 +153,7 @@ class Result extends Component {
   render() {
     var elapsed = Math.round(window.sessionTime / 100)
     var display = (elapsed/10).toFixed(1)
+    console.log((this.arrayAverage(this.averages['Anger'].values) / fullLength))
     return (
       <div className="result">
         <div className="top-row-results">
@@ -174,40 +175,56 @@ class Result extends Component {
           <div className="average-grid">
             <div
               className="analytics-box-1"
+              style={{ backgroundColor: ("rgba(230, 0, 0, " + (this.arrayAverage(this.averages['Anger'].values) / 100) + ")")}}
               >
               <p className="analytic-name">Anger</p>
               <p className="analytic-percentage">{this.arrayAverage(this.averages['Anger'].values)}%</p>
             </div>
             <div
               className="analytics-box-2"
-              style={{ backgroundColor: ("rgba(255, 102, 0, " + (this.arrayAverage(this.averages['Anger'].values) / fullLength) + ")")}}
+              style={{ backgroundColor: ("rgba(255, 102, 0, " + (this.arrayAverage(this.averages['Contempt'].values) / 100) + ")")}}
             >
               <p className="analytic-name">Contempt</p>
               <p className="analytic-percentage">{this.arrayAverage(this.averages['Contempt'].values)}%</p>
             </div>
-            <div className="analytics-box-3">
+            <div
+              className="analytics-box-3"
+              style={{ backgroundColor: ("rgba(0, 0, 102, " + (this.arrayAverage(this.averages['Disgust'].values) / 100) + ")")}}
+              >
               <p className="analytic-name">Disgust</p>
               <p className="analytic-percentage">{this.arrayAverage(this.averages['Disgust'].values)}%</p>
             </div>
-            <div className="analytics-box-4">
+            <div
+              className="analytics-box-4"
+              style={{ backgroundColor: ("rgba(230, 230, 0, " + (this.arrayAverage(this.averages['Fear'].values) / 100) + ")")}}
+            >
               <p className="analytic-name">Fear</p>
               <p className="analytic-percentage">{this.arrayAverage(this.averages['Fear'].values)}%</p>
             </div>
             <div
               className="analytics-box-5"
-              style={{ backgroundColor: ("rgba(42, 190, 42, " + (this.arrayAverage(this.averages['Anger'].values) / 100) + ")")}}>
+              style={{ backgroundColor: ("rgba(42, 190, 42, " + (this.arrayAverage(this.averages['Happiness'].values) / 100) + ")")}}>
               <p className="analytic-name">Happiness</p>
               <p className="analytic-percentage">{this.arrayAverage(this.averages['Happiness'].values)}%</p>
             </div>
-            <div className="analytics-box-6">
+            <div
+              className="analytics-box-6"
+              style={{ backgroundColor: ("rgba(128, 128, 128, " + (this.arrayAverage(this.averages['Neutral'].values) / 100) + ")")}}
+            >
               <p className="analytic-name">Neutral</p>
               <p className="analytic-percentage">{this.arrayAverage(this.averages['Neutral'].values)}%</p>
             </div>
-            <div className="analytics-box-7">
+            <div
+              className="analytics-box-7"
+              style={{ backgroundColor: ("rgba(0, 172, 230, " + (this.arrayAverage(this.averages['Sadness'].values) / 100) + ")")}}
+            >
               <p className="analytic-name">Sadness</p>
               <p className="analytic-percentage">{this.arrayAverage(this.averages['Sadness'].values)}%</p>
             </div>
-            <div className="analytics-box-8">
+            <div
+              className="analytics-box-8"
+              style={{ backgroundColor: ("rgba(153, 0, 204, " + (this.arrayAverage(this.averages['Surprise'].values) / 100) + ")")}}
+            >
               <p className="analytic-name">Surprise</p>
               <p className="analytic-percentage">{this.arrayAverage(this.averages['Surprise'].values)}%</p>
             </div>
@@ -225,37 +242,61 @@ class Result extends Component {
           </div>
           <div className="max-values">
             <div className="max-grid">
-              <div className="max-box-1">
+              <div
+                className="max-box-1"
+                style={{ backgroundColor: ("rgba(230, 0, 0, " + (this.arrayAverage(this.averages['Anger'].values) / 100) + ")")}}
+              >
                 <p className="analytic-name">Anger</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Anger') * 1000) * 1.0 / 10).toFixed(1)}%       {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Anger")))}</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Anger') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Anger")))}</p>
               </div>
-              <div className="max-box-2">
+              <div
+                className="max-box-2"
+                style={{ backgroundColor: ("rgba(255, 102, 0, " + (this.arrayAverage(this.averages['Contempt'].values) / 100) + ")")}}
+              >
                 <p className="analytic-name">Contempt</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Contempt') * 1000) * 1.0 / 10).toFixed(1)}%     {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Contempt")))}</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Contempt') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Contempt")))}</p>
               </div>
-              <div className="max-box-3">
+              <div
+                className="max-box-3"
+                style={{ backgroundColor: ("rgba(0, 0, 102, " + (this.arrayAverage(this.averages['Disgust'].values) / 100) + ")")}}
+              >
                 <p className="analytic-name">Disgust</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Disgust') * 1000) * 1.0 / 10).toFixed(1)}%       {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Disgust")))}</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Disgust') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Disgust")))}</p>
               </div>
-              <div className="max-box-4">
+              <div
+                className="max-box-4"
+                style={{ backgroundColor: ("rgba(230, 230, 0, " + (this.arrayAverage(this.averages['Fear'].values) / 100) + ")")}}
+              >
                 <p className="analytic-name">Fear</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Fear') * 1000) * 1.0 / 10).toFixed(1)}%       {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Fear")))}</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Fear') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Fear")))}</p>
               </div>
-              <div className="max-box-5">
+              <div
+                className="max-box-5"
+                style={{ backgroundColor: ("rgba(42, 190, 42, " + (this.arrayAverage(this.averages['Happiness'].values) / 100) + ")")}}
+              >
                 <p className="analytic-name">Happiness</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Happiness') * 1000) * 1.0 / 10).toFixed(1)}%       {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Happiness")))}</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Happiness') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Happiness")))}</p>
               </div>
-              <div className="max-box-6">
+              <div
+                className="max-box-6"
+                style={{ backgroundColor: ("rgba(128, 128, 128, " + (this.arrayAverage(this.averages['Neutral'].values) / 100) + ")")}}
+              >
                 <p className="analytic-name">Neutral</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Neutral') * 1000) * 1.0 / 10).toFixed(1)}%       {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Neutral")))}</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Neutral') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Neutral")))}</p>
               </div>
-              <div className="max-box-7">
+              <div
+                className="max-box-7"
+                style={{ backgroundColor: ("rgba(0, 172, 230, " + (this.arrayAverage(this.averages['Sadness'].values) / 100) + ")")}}
+              >
                 <p className="analytic-name">Sadness</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Sadness') * 1000) * 1.0 / 10).toFixed(1)}%       {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Sadness")))}</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Sadness') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Sadness")))}</p>
               </div>
-              <div className="max-box-8">
+              <div
+                className="max-box-8"
+                style={{ backgroundColor: ("rgba(153, 0, 204, " + (this.arrayAverage(this.averages['Surprise'].values) / 100) + ")")}}
+              >
                 <p className="analytic-name">Surprise</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Surprise') * 1000) * 1.0 / 10).toFixed(1)}%       {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Surprise")))}</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Surprise') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Surprise")))}</p>
               </div>
             </div>
           </div>

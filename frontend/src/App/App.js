@@ -9,7 +9,46 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      currentPage: 'live'
+      currentPage: 'live',
+      historyData: [{ 
+          "key" : "Anger" ,
+          "values" : [ ]
+        }, 
+    
+        { 
+          "key" : "Contempt",
+          "values" : [ ]
+        }, 
+    
+        { 
+          "key" : "Disgust",
+          "values" : [ ]
+        },
+    
+        { 
+          "key" : "Fear",
+          "values" : [ ]
+        } , 
+    
+        { 
+          "key" : "Happiness",
+          "values" : [ ]
+        } , 
+    
+        {
+          "key" : "Neutral",
+          "values" : [ ]
+        } , 
+    
+        { 
+          "key" : "Sadness",
+          "values" : [ ]
+        } ,
+        { 
+          "key" : "Surprise",
+          "values" : [ ]
+        }
+      ]
     }
   }
 

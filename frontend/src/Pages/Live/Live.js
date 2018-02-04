@@ -7,14 +7,14 @@ class Live extends Component {
   constructor() {
     super();
     this.averages = {
-      red: .5,
-      contempt: .7,
-      disgust: 1,
-      fear:.6,
-      happiness:1,
-      neutral:1,
-      sadness:1,
-      suprise:1,
+      anger: 0,
+      contempt: 0,
+      disgust: 0,
+      fear: 0,
+      happiness: 0,
+      neutral: 0,
+      sadness: 0,
+      surprise: 0,
     };
     this.state= {
       startTime: Date.now(),
@@ -81,6 +81,17 @@ class Live extends Component {
       this.setState({elapsed: Date.now() - this.state.startTime + this.state.pauseTime});
     }
   }
+
+  setAverages(avgArray) {
+    this.averages["anger"] = avgArray['sumScoreMaps']["anger"] * 1.0 / avgArray['audienceCnt'] || 0;
+    this.averages["contempt"] = avgArray['sumScoreMaps']["contempt"] * 1.0 / avgArray['audienceCnt'] || 0;
+    this.averages["disgust"] = avgArray['sumScoreMaps']["disgust"] * 1.0 / avgArray['audienceCnt'] || 0;
+    this.averages["fear"] = avgArray['sumScoreMaps']["fear"] * 1.0 / avgArray['audienceCnt'] || 0;
+    this.averages["happiness"] = avgArray['sumScoreMaps']["happiness"] * 1.0 / avgArray['audienceCnt'] || 0;
+    this.averages["neutral"] = avgArray['sumScoreMaps']["neutral"] * 1.0 / avgArray['audienceCnt'] || 0;
+    this.averages["sadness"] = avgArray['sumScoreMaps']["sadness"] * 1.0 / avgArray['audienceCnt'] || 0;
+    this.averages["surprise"] = avgArray['sumScoreMaps']["surprise"] * 1.0 / avgArray['audienceCnt'] || 0;
+  }
       
   render() {
     var elapsed = Math.round(this.state.elapsed / 100)
@@ -99,16 +110,53 @@ class Live extends Component {
           </div>
         </div>
         <div className="live-analytics">
-          <div className="analytics-box-1" style={{ backgroundColor: ("rgba(230, 0, 0, " + this.averages["red"] + ")")}}></div>
-          <div className="analytics-box-2" style={{ backgroundColor: ("rgba(255, 102, 0, " + this.averages["contempt"] + ")")}}></div>
-          <div className="analytics-box-3" style={{ backgroundColor: ("rgba(0, 0, 102, " + this.averages["disgust"] + ")")}}></div>
-          <div className="analytics-box-4" style={{ backgroundColor: ("rgba(230, 230, 0, " + this.averages["fear"] + ")")}}></div>
-          <div className="analytics-box-5" style={{ backgroundColor: ("rgba(42, 190, 42, " + this.averages["happiness"] + ")")}}></div>
-          <div className="analytics-box-6" style={{ backgroundColor: ("rgba(128, 128, 128, " + this.averages["neutral"] + ")")}}></div>
-          <div className="analytics-box-7" style={{ backgroundColor: ("rgba(0, 172, 230, " + this.averages["sadness"] + ")")}}></div>
-          <div className="analytics-box-8" style={{ backgroundColor: ("rgba(153, 0, 204, " + this.averages["suprise"] + ")")}}></div>
+          <div
+            className="analytics-box-1"
+            style={{ backgroundColor: ("rgba(230, 0, 0, " + this.averages["anger"] + ")")}}>
+            <p>Anger</p><p>{(parseInt(this.averages['anger'] * 1000) * 1.0 / 10).toFixed(1)}%</p>
+          </div>
+          <div
+            className="analytics-box-2"
+            style={{ backgroundColor: ("rgba(255, 102, 0, " + this.averages["contempt"] + ")")}}>
+            <p>Contempt</p><p>{(parseInt(this.averages['contempt'] * 1000) * 1.0 / 10).toFixed(1)}%</p>
+          </div>
+          <div
+            className="analytics-box-3"
+            style={{ backgroundColor: ("rgba(0, 0, 102, " + this.averages["disgust"] + ")")}}>
+            <p>Disgust</p><p>{(parseInt(this.averages['disgust'] * 1000) * 1.0 / 10).toFixed(1)}%</p>
+          </div>
+          <div
+            className="analytics-box-4"
+            style={{ backgroundColor: ("rgba(230, 230, 0, " + this.averages["fear"] + ")")}}>
+            <p>Fear</p><p>{(parseInt(this.averages['fear'] * 1000) * 1.0 / 10).toFixed(1)}%</p>
+          </div>
+          <div
+            className="analytics-box-5"
+            style={{ backgroundColor: ("rgba(42, 190, 42, " + this.averages["happiness"] + ")")}}>
+            <p>Happiness</p><p>{(parseInt(this.averages['happiness'] * 1000) * 1.0 / 10).toFixed(1)}%</p>
+          </div>
+          <div
+            className="analytics-box-6"
+            style={{ backgroundColor: ("rgba(128, 128, 128, " + this.averages["neutral"] + ")")}}>
+            <p>Neutral</p><p>{(parseInt(this.averages['neutral'] * 1000) * 1.0 / 10).toFixed(1)}%</p>
+          </div>
+          <div
+            className="analytics-box-7"
+            style={{ backgroundColor: ("rgba(0, 172, 230, " + this.averages["sadness"] + ")")}}>
+            <p>Sadness</p><p>{(parseInt(this.averages['sadness'] * 1000) * 1.0 / 10).toFixed(1)}%</p>
+          </div>
+          <div
+            className="analytics-box-8"
+            style={{ backgroundColor: ("rgba(153, 0, 204, " + this.averages["surprise"] + ")")}}>
+            <p>Surprise</p><p>{(parseInt(this.averages['surprise'] * 1000) * 1.0 / 10).toFixed(1)}%</p>
+          </div>
         </div>
-        <D3Chart className="graph" captureSnapshotCounter={this.state.captureSnapshotCounter} localData={this.state.localData} />
+        <D3Chart
+          className="graph"
+          captureSnapshotCounter={this.state.captureSnapshotCounter}
+          updateGlobalStorage={(chartValues) => this.updateGlobalChart(chartValues)}
+          setAverages={(avgArray) => this.setAverages(avgArray)}
+        />
       </div>
     )
   }

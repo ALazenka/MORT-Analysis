@@ -10,6 +10,8 @@
 }
 
 .top-row {
+  display: flex;
+  justify-content: space-between;
   grid-area: top;
   padding: 20px;
   /* margin: 1.5% 2.5% 1.5%;  */
@@ -46,35 +48,27 @@
 }
 
 .analytics-box-1 {
-  /* background: #e60000; */
 }
 
 .analytics-box-2 {
-  background: #ff6600;
 }
 
 .analytics-box-3 {
-  background: #000066;
 }
 
 .analytics-box-4 {
-  background: #e6e600;
 }
 
 .analytics-box-5 {
-  background: #2eb82e;
 }
 
 .analytics-box-6 {
-  background: #808080;
 }
 
 .analytics-box-7 {
-  background: #00ace6;
 }
 
 .analytics-box-8 {
-  background: #9900cc;
 }
 
 .graph {

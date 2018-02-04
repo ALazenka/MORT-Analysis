@@ -63,7 +63,7 @@ class Live extends Component {
   }
   
   endSession() {
-    console.log("End Session");
+    window.sessionTime = this.state.elapsed
   }
 
   tick() {

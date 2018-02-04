@@ -1,69 +1,226 @@
 .result {
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 10vh 45vh 45vh;
-    grid-template-areas:
-        "top"
-        "scrub"
-        "data";
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 15vh 35vh 7vh 30vh;
+  grid-template-areas:
+    "top"
+    "scrub"
+    "result-titles"
+    "data";
 }
 
-.toprow {
-    grid-area: "top";
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.top-row-results {
+  grid-area: "top";
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
 }
 
 .time {
-    text-align: center;
-    line-height: 25px;
-    width: 20%;
-    border: 2px solid #000000;
-    border-radius: 3px;
+  text-align: center;
+  width: 260px;
+  font-size: 25px;
+  background: #fafafa;
+  border: 2px solid #f1f1f1;
+  border-radius: 3px;
+  max-height: 40px;
+  min-height: 40px;
+}
+
+.exit-button {
+  min-height: 40px;
+  max-height: 40px;
+  width: 50px;
+}
+
+.export-button {
+  min-height: 40px;
+  max-height: 40px;
+  width: 70px;
+  margin-right: 20px;
+}
+
+.result-titles {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  grid-template-rows: 100%;
+  grid-template-areas:
+    "current-values-title transcript-title max-values-title";
+  text-align: center;
+  font-size: 28px;
+}
+
+.current-values-title {
+  grid-area: current-values-title;
+}
+
+.transcript-title {
+  grid-area: transcript-title;
+}
+
+.max-values-title {
+  grid-area: max-values-title;
 }
 
 .data {
-    grid-area: "data";
-    display: flex;
-    justify-content: space-around;
+  grid-area: "data";
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  grid-template-rows: 100%;
+  grid-template-areas:
+    "average-grid transcription max-values";
 }
 
-.averageGrid {
-    display:grid;
-    grid-template-columns: 50% 50%;
+.average-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-left: 20px;
 }
 
 .analytics-box-1 {
-    grid-column: 1;
-    grid-row: 1;
+  grid-column: 1;
+  grid-row: 1;
+  margin-right: 10px;
+  margin-bottom: 20px;
 }
+
 .analytics-box-2 {
-    grid-column: 2;
-    grid-row: 1;
+  grid-column: 2;
+  grid-row: 1;
+  margin-bottom: 20px;
 }
+
 .analytics-box-3 {
-    grid-column: 1;
-    grid-row: 2;
+  grid-column: 1;
+  grid-row: 2;
+  margin-right: 10px;
+  margin-bottom: 20px;
 }
+
 .analytics-box-4 {
-    grid-column: 2;
-    grid-row: 2;
+  grid-column: 2;
+  grid-row: 2;
+  margin-bottom: 20px;
 }
+
 .analytics-box-5 {
-    grid-column: 1;
-    grid-row: 3;
+  grid-column: 1;
+  grid-row: 3;
+  margin-right: 10px;
+  margin-bottom: 20px;
 }
+
 .analytics-box-6 {
-    grid-column: 2;
-    grid-row: 3;
+  grid-column: 2;
+  grid-row: 3;
+  margin-bottom: 20px;
 }
+
 .analytics-box-7 {
-    grid-column: 1;
-    grid-row: 4
+  grid-column: 1;
+  grid-row: 4;
+  margin-right: 10px;
+  margin-bottom: 20px;
 }
+
 .analytics-box-8 {
-    grid-column: 2;
-    grid-row: 4;
+  grid-column: 2;
+  grid-row: 4;
+  margin-bottom: 20px;
+}
+
+.max-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-right: 20px;
+}
+
+.max-box-1 {
+  border: 2px solid rgb(230, 0, 0);
+  grid-column: 1;
+  grid-row: 1;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.max-box-2 {
+  border: 2px solid rgb(255, 102, 0);
+  grid-column: 2;
+  grid-row: 1;
+  margin-bottom: 20px;
+}
+
+.max-box-3 {
+  border: 2px solid rgb(0, 0, 102);
+  grid-column: 1;
+  grid-row: 2;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.max-box-4 {
+  border: 2px solid rgb(230, 230, 0);
+  grid-column: 2;
+  grid-row: 2;
+  margin-bottom: 20px;
+}
+
+.max-box-5 {
+  border: 2px solid rgb(42, 190, 42);
+  grid-column: 1;
+  grid-row: 3;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.max-box-6 {
+  border: 2px solid rgb(128, 128, 128);
+  grid-column: 2;
+  grid-row: 3;
+  margin-bottom: 20px;
+}
+
+.max-box-7 {
+  border: 2px solid rgb(0, 172, 230);
+  grid-column: 1;
+  grid-row: 4;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.max-box-8 {
+  border: 2px solid rgb(153, 0, 204);
+  grid-column: 2;
+  grid-row: 4;
+  margin-bottom: 20px;
+}
+
+.analytic-name {
+  text-align: center;
+  font-size: 24px;
+}
+
+.analytic-percentage {
+  text-align: center;
+  font-size: 18px;
+}
+
+.transcription {
+  grid-area: transcription;
+  background-color: pink;
+  height: 392px;
+  overflow: scroll;
+  margin: 0 20px;
+  background: #fafafa;
+  border: 2px solid #353535;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+.max-values {
+  grid-area: max-values;
+  height: 392px;
+  margin-right: 20px;
 }

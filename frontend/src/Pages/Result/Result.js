@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 
 class Result extends Component {
-
+  
   render() {
     return (
-      <div></div>
+      <div className="result">
+        <div className="topow">
+        </div>
+        <div className="data"></div>
+      </div>
     )
   }
 

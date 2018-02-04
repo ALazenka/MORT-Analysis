@@ -1,0 +1,28 @@
+.result{
+    display: flex;
+    grid-template-columns: 100%;
+    grid-template-rows: 10vh, 45vh, 45vh;
+    grid-template-areas:
+        "top"
+        "scrub"
+        "data";
+}
+
+.toprow{
+    grid-area: "top";
+    display: flex;
+    justify-content: space-between;
+}
+
+.data{
+    grid-area: "data";
+    display: flex;
+    justify-content: space-around;
+}
+
+.averageGrid{
+    display:grid;
+    grid-column: 2;
+    grid-row:4;
+}
+

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Live.css'
+import { Button } from 'react-bootstrap'
 import D3Chart from '../../Components/D3Chart/D3Chart'
 
 class Live extends Component {
@@ -10,7 +11,8 @@ class Live extends Component {
       elapsed: 0,
       pause: false,
       pauseTime: 0,
-      pauseBtnTxt: "Pause"
+      pauseBtnTxt: "Pause",
+      captureSnapshotCounter: 0
     }
   }
 
@@ -22,16 +24,15 @@ class Live extends Component {
   }
 
   componentDidMount() {
-    this.timer = setInterval(() => this.tick(), 100)
+    this.timer = setInterval(() => this.tick(), 1000)
   }
 
   componentWillUnmount(){
     clearInterval(this.timer)
   }
 
-  pauseSession(){
-    if (this.state.pause){
-      console.log("I am now going!");
+  pauseSession() {
+    if (this.state.pause) {
       this.setState({
         pauseBtnTxt: "Pause"
       })
@@ -52,15 +53,24 @@ class Live extends Component {
   }
 
   tick() {
-    this.setState({
-      elapsed: Date.now() - this.state.startTime
-    })
+    const { captureSnapshotCounter } = this.state
+    if (captureSnapshotCounter % 3 === 0) {
+      this.setState({
+        elapsed: Date.now() - this.state.startTime,
+        captureSnapshotCounter: this.state.captureSnapshotCounter + 1
+      })
+    } else {
+      this.setState({
+        elapsed: Date.now() - this.state.startTime,
+        captureSnapshotCounter: captureSnapshotCounter + 1
+      })
+    }
   }
       
   render() {
     var elapsed = Math.round(this.state.elapsed / 100)
     var display = (elapsed/10).toFixed(1)
-    return(
+    return (
       <div className="live">
         <div className="top-row">
           <div className="timer">
@@ -83,9 +93,10 @@ class Live extends Component {
           <div className="analytics-box-7"></div>
           <div className="analytics-box-8"></div>
         </div>
-        <D3Chart className="graph" />
+        <D3Chart className="graph" captureSnapshotCounter={this.state.captureSnapshotCounter} localData={this.state.localData} />
       </div>
     )
   }
 }
+
 export default Live;

@@ -1,4 +1,5 @@
 .live {
+  z-index: 1;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 15vh 50vh 35vh;
@@ -78,4 +79,11 @@
 
 .graph {
   grid-area: graph;
+}
+
+.hidden-elements {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
 }

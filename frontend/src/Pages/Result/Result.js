@@ -47,16 +47,16 @@ class Result extends Component {
   maxIndex(emotion){
     var max = this.getMaxOfArray(this.averages[emotion].values);
     console.log("MAX INDEX FUNC")
-    console.log(this.averages[emotion].values)
+    console.log(this.averages[emotion].times)
     console.log(max)
     return this.averages[emotion].values.indexOf(max);
   }
   findMax(emotion){
     console.log("FIND MAX FUNC")
-    return [this.averages[emotion].values[this.maxIndex(emotion)]];
+    return this.averages[emotion].values[this.maxIndex(emotion)];
   }
   findMaxTime(emotion){
-    return [this.averages[emotion].times[this.maxIndex(emotion)]];
+    return this.averages[emotion].times[this.maxIndex(emotion)];
   }
 
   restartSession() {
@@ -214,35 +214,35 @@ class Result extends Component {
             <div className="max-grid">
               <div className="max-box-1">
                 <p className="analytic-name">Anger</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Anger') * 1000) * 1.0 / 10).toFixed(1)}%</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Anger') * 1000) * 1.0 / 10).toFixed(1)}%       {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Anger")))}</p>
               </div>
               <div className="max-box-2">
                 <p className="analytic-name">Contempt</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Contempt') * 1000) * 1.0 / 10).toFixed(1)}%</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Contempt') * 1000) * 1.0 / 10).toFixed(1)}%     {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Contempt")))}</p>
               </div>
               <div className="max-box-3">
                 <p className="analytic-name">Disgust</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Disgust') * 1000) * 1.0 / 10).toFixed(1)}%</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Disgust') * 1000) * 1.0 / 10).toFixed(1)}%       {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Disgust")))}</p>
               </div>
               <div className="max-box-4">
                 <p className="analytic-name">Fear</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Fear') * 1000) * 1.0 / 10).toFixed(1)}%</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Fear') * 1000) * 1.0 / 10).toFixed(1)}%       {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Fear")))}</p>
               </div>
               <div className="max-box-5">
                 <p className="analytic-name">Happiness</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Happiness') * 1000) * 1.0 / 10).toFixed(1)}%</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Happiness') * 1000) * 1.0 / 10).toFixed(1)}%       {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Happiness")))}</p>
               </div>
               <div className="max-box-6">
                 <p className="analytic-name">Neutral</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Neutral') * 1000) * 1.0 / 10).toFixed(1)}%</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Neutral') * 1000) * 1.0 / 10).toFixed(1)}%       {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Neutral")))}</p>
               </div>
               <div className="max-box-7">
                 <p className="analytic-name">Sadness</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Sadness') * 1000) * 1.0 / 10).toFixed(1)}%</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Sadness') * 1000) * 1.0 / 10).toFixed(1)}%       {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Sadness")))}</p>
               </div>
               <div className="max-box-8">
                 <p className="analytic-name">Surprise</p>
-                <p className="analytic-percentage">{(parseInt(this.findMax('Surprise') * 1000) * 1.0 / 10).toFixed(1)}%</p>
+                <p className="analytic-percentage">{(parseInt(this.findMax('Surprise') * 1000) * 1.0 / 10).toFixed(1)}%       {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Surprise")))}</p>
               </div>
             </div>
           </div>

@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      currentPage: 'result',
+      currentPage: 'Home',
       historyData: [{ 
           "key" : "Anger" ,
           "values" : [ ]
@@ -58,13 +58,9 @@ class App extends Component {
     })
   }
 
-  updateGlobalChart(chartValues) {
-    // do something
-  }
-
   render() {
     if (this.state.currentPage === 'live') {
-      return <Live updateGlobalChart={(chartValues) => this.updateGlobalChart(chartValues)} />
+      return <Live changePage={(pageName) => this.changePage(pageName)} />
     } else if (this.state.currentPage === 'result') {
       return <Result />  
     }

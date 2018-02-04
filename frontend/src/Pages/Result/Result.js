@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
 import "./Result.css"
+import D3Final from '../../Components/D3Final/D3Final'
 
 class Result extends Component {
   constructor(){
@@ -21,9 +22,12 @@ class Result extends Component {
     return (
       <div className="result">
         <div className="top-row">
-          <div className="time">Session time:      14:37</div>
+          <div className="time">Session time: {parseInt((new Date(window.globalData[0].values[window.globalData[0].values.length-1][0]) - new Date(window.globalData[0].values[0][0]))/1000/60)}M {parseInt((new Date(window.globalData[0].values[window.globalData[0].values.length-1][0]) - new Date(window.globalData[0].values[0][0]))/1000%60)}S</div>
           <Button bsStyle="danger">Exit</Button>
         </div>
+        <D3Final
+          className = "graph"
+        />
         <div className="data">
         </div>
         <div className="average-grid">

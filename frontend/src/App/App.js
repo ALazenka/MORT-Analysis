@@ -58,9 +58,13 @@ class App extends Component {
     })
   }
 
+  updateGlobalChart(chartValues) {
+    // do something
+  }
+
   render() {
     if (this.state.currentPage === 'live') {
-      return <Live />
+      return <Live updateGlobalChart={(chartValues) => this.updateGlobalChart(chartValues)} />
     } else if (this.state.currentPage === 'result') {
       return <Result />  
     }

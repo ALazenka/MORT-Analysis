@@ -20,7 +20,7 @@
 .home-middle-wrapper {
   position: absolute;
   top: 25%;
-  left: 30%;
+  left: 33%;
   z-index: 1;
 }
 
@@ -28,6 +28,7 @@
   font-size: 160px;
   margin-bottom: 0;
   color: white;
+  height: 175px;
 }
 
 .home-description {
@@ -42,6 +43,7 @@
 }
 
 .home-button-wrapper {
+  margin-top: 65px;
 }
 
 .start-button {

@@ -3,6 +3,8 @@ import { Button } from 'react-bootstrap'
 import "./Result.css"
 import D3Final from '../../Components/D3Final/D3Final'
 
+var fullLength = 0;
+
 class Result extends Component {
   constructor(){
     super();
@@ -20,16 +22,19 @@ class Result extends Component {
 
   componentWillMount() {
     let someObj = {}
+    let valueHolder = []
     window.globalData.forEach(innerObj => {
+      console.log(innerObj)
       let key = innerObj.key
       someObj[key] = { times: [], values: []}
       innerObj.values.forEach(innerArray => {
-
         someObj[key].times.push(innerArray[0])
         someObj[key].values.push(innerArray[1])
+        valueHolder.push(innerArray[1])
       })
     })
     this.averages = someObj
+    fullLength = this.arrayAverage(valueHolder)
     console.log(this.averages)
   }
 
@@ -38,6 +43,7 @@ class Result extends Component {
     for (var i = 0; i < array.length; i++ ) {
         sum += array[i]
     }
+
     let returnVal = (parseInt(sum * 1000) * 1.0 / 10 / array.length).toFixed(1)
     return returnVal;
   }
@@ -149,11 +155,16 @@ class Result extends Component {
         </div>
         <div className="data">
           <div className="average-grid">
-            <div className="analytics-box-1">
+            <div
+              className="analytics-box-1"
+              >
               <p className="analytic-name">Anger</p>
               <p className="analytic-percentage">{this.arrayAverage(this.averages['Anger'].values)}%</p>
             </div>
-            <div className="analytics-box-2">
+            <div
+              className="analytics-box-2"
+              style={{ backgroundColor: ("rgba(255, 102, 0, " + (this.arrayAverage(this.averages['Anger'].values) / fullLength) + ")")}}
+            >
               <p className="analytic-name">Contempt</p>
               <p className="analytic-percentage">{this.arrayAverage(this.averages['Contempt'].values)}%</p>
             </div>
@@ -165,7 +176,9 @@ class Result extends Component {
               <p className="analytic-name">Fear</p>
               <p className="analytic-percentage">{this.arrayAverage(this.averages['Fear'].values)}%</p>
             </div>
-            <div className="analytics-box-5">
+            <div
+              className="analytics-box-5"
+              style={{ backgroundColor: ("rgba(42, 190, 42, " + (this.arrayAverage(this.averages['Anger'].values) / 100) + ")")}}>
               <p className="analytic-name">Happiness</p>
               <p className="analytic-percentage">{this.arrayAverage(this.averages['Happiness'].values)}%</p>
             </div>

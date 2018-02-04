@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
 import './Live.css'
-import { Button } from 'react-bootstrap'
 import D3Chart from '../../Components/D3Chart/D3Chart'
 
 class Live extends Component {

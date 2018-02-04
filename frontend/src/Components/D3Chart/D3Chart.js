@@ -87,6 +87,18 @@ class D3Chart extends Component {
     });
   }
 
+  componentDidMount() {
+    const video = document.getElementById('video')
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+ 
+    if (navigator.getUserMedia) {       
+      navigator.getUserMedia({video: true}, (stream) => {
+        video.src = window.URL.createObjectURL(stream)
+      }, (error) => {
+        //do something
+      })
+    }
+ }
   updateTable() {
     console.log('update chart')
     const { localData } = this.state

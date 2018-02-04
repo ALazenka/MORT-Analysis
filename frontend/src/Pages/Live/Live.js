@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button } from 'react-bootstrap'
 import './Live.css'
 import { Button } from 'react-bootstrap'
 import D3Chart from '../../Components/D3Chart/D3Chart'
@@ -27,7 +28,7 @@ class Live extends Component {
     this.timer = setInterval(() => this.tick(), 1000)
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(this.timer)
   }
 
@@ -42,10 +43,14 @@ class Live extends Component {
       })
     }
     else {
-      this.setState({pauseBtnTxt: "Continue"});
-      this.setState({pauseTime: this.state.elapsed});
+      this.setState({
+        pauseBtnTxt: "Continue",
+        pauseTime: this.state.elapsed
+      })
     }
-    this.setState({pause: !this.state.pause});
+    this.setState({
+      pause: !this.state.pause
+    })
   }
 
   endSession() {
@@ -75,12 +80,12 @@ class Live extends Component {
         <div className="top-row">
           <div className="timer">
             {Math.floor(display/60)}:{("0" + Math.round(display%60)).substr(-2)}
-            <Button bsStyle="warning" className="pause" onClick={() => this.pauseSession()}>{this.state.pauseBtnTxt}</Button>
-            <Button bsStyle="danger" className="stop" onClick={() => this.endSession()}>Stop</Button>
           </div>
           <div className="viewer-count">
           </div>
           <div className="timer-buttons">
+            <Button bsStyle="warning" className="pause" onClick={() => this.pauseSession()}>{this.state.pauseBtnTxt}</Button>
+            <Button bsStyle="danger" className="stop" onClick={() => this.endSession()}>Stop</Button>
           </div>
         </div>
         <div className="live-analytics">

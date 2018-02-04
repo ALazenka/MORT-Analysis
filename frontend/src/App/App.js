@@ -62,7 +62,7 @@ class App extends Component {
     if (this.state.currentPage === 'live') {
       return <Live changePage={(pageName) => this.changePage(pageName)} />
     } else if (this.state.currentPage === 'result') {
-      return <Result />  
+      return <Result changePage={(pageName) => this.changePage(pageName)} />  
     }
     return <Home changePage={pageName => this.changePage(pageName)} />
   }

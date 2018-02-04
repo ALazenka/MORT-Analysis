@@ -9,7 +9,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      currentPage: 'live',
+      currentPage: 'home',
       historyData: [{ 
           "key" : "Anger" ,
           "values" : [ ]

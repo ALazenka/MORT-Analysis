@@ -7,6 +7,7 @@
     "top"
     "analytics"
     "graph";
+  overflow: hidden;
 }
 
 .top-row {
@@ -24,14 +25,12 @@
   background: #fafafa;
   border: 2px solid #f1f1f1;
   border-radius: 3px;
+  max-height: 40px;
+  min-height: 40px;
 }
 
-.viewer-count {
-
-}
-
-.timer-buttons {
-
+.pause {
+  margin-right: 4px;
 }
 
 .live-analytics {
@@ -48,27 +47,43 @@
 }
 
 .analytics-box-1 {
+  border: 2px solid rgb(230, 0, 0);
+  border-radius: 3px;
 }
 
 .analytics-box-2 {
+  border: 2px solid rgb(255, 102, 0);
+  border-radius: 3px;
 }
 
 .analytics-box-3 {
+  border: 2px solid rgb(0, 0, 102);
+  border-radius: 3px;
 }
 
 .analytics-box-4 {
+  border: 2px solid rgb(230, 230, 0);
+  border-radius: 3px;
 }
 
 .analytics-box-5 {
+  border: 2px solid rgb(42, 190, 42);
+  border-radius: 3px;
 }
 
 .analytics-box-6 {
+  border: 2px solid rgb(128, 128, 128);
+  border-radius: 3px;
 }
 
 .analytics-box-7 {
+  border: 2px solid rgb(0, 172, 230);
+  border-radius: 3px;
 }
 
 .analytics-box-8 {
+  border: 2px solid rgb(153, 0, 204);
+  border-radius: 3px;
 }
 
 .graph {

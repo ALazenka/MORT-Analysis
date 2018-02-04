@@ -3,10 +3,24 @@ import './D3Chart.css'
 
 class D3Chart extends Component {
 
+  constructor() {
+    super()
+    this.state = {
+      hasSentRequest: false
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
-    if (nextProps.captureSnapshotCounter % 3 === 0) {
+    if (nextProps.captureSnapshotCounter % 3 === 0 && !this.state.hasSentRequest) {
+      console.log(nextProps)
+      this.setState({
+        hasSentRequest: true
+      })
       this.updateTable()
+    } else {
+      this.setState({
+        hasSentRequest: false
+      })
     }
   }
 

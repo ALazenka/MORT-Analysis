@@ -9,18 +9,18 @@ class Home extends Component {
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
  
     if (navigator.getUserMedia) {       
-        navigator.getUserMedia({video: true}, (stream) => {
-          video.src = window.URL.createObjectURL(stream)
-        }, (error) => {
-          //do something
-        })
+      navigator.getUserMedia({video: true}, (stream) => {
+        video.src = window.URL.createObjectURL(stream)
+      }, (error) => {
+        //do something
+      })
     }
   }
 
   render() {
     return (
       <div className="App">
-        <Button bsStyle="success" className="start-button" onClick={() => console.log('hey')}>Start!</Button>
+        <Button bsStyle="success" className="start-button" onClick={() => this.props.changePage('live')}>Start!</Button>
         <div className="video-mask" />
         <video autoPlay="true" id="videoElement" className="video-element" />
       </div>

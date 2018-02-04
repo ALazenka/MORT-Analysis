@@ -19,18 +19,21 @@
 
 .home-middle-wrapper {
   position: absolute;
-  top: 38%;
-  left: 38.5%;
+  top: 25%;
+  left: 33%;
   z-index: 1;
 }
 
 .home-title {
   font-size: 160px;
+  margin-bottom: 0;
   color: white;
+  height: 175px;
 }
 
 .home-description {
   font-size: 45px;
+  margin-top: 0;
   color: grey;
 }
 
@@ -40,6 +43,7 @@
 }
 
 .home-button-wrapper {
+  margin-top: 65px;
 }
 
 .start-button {

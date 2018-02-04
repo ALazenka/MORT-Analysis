@@ -33,6 +33,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * https://developer.mozilla.org/en/JavaScript_typed_arrays/Uint8Array
  */
 
+var sessionTime;
+
 var globalData = [{ 
 	"key" : "Anger" ,
 	"values" : [ ]

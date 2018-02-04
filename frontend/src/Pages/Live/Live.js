@@ -67,17 +67,18 @@ class Live extends Component {
   }
 
   tick() {
-    const { captureSnapshotCounter } = this.state
-    if (captureSnapshotCounter % 3 === 0) {
-      this.setState({
-        elapsed: Date.now() - this.state.startTime,
-        captureSnapshotCounter: this.state.captureSnapshotCounter + 1
-      })
-    } else {
-      this.setState({
-        elapsed: Date.now() - this.state.startTime,
-        captureSnapshotCounter: captureSnapshotCounter + 1
-      })
+    if (!this.state.pause){
+      const { captureSnapshotCounter } = this.state
+      if (captureSnapshotCounter % 3 === 0) {
+        this.setState({
+          captureSnapshotCounter: this.state.captureSnapshotCounter + 1
+        })
+      } else {
+        this.setState({
+          captureSnapshotCounter: captureSnapshotCounter + 1
+        })
+      }
+      this.setState({elapsed: Date.now() - this.state.startTime + this.state.pauseTime});
     }
   }
 
@@ -93,7 +94,6 @@ class Live extends Component {
   }
       
   render() {
-    console.log(("rgba(230, 0, 0, " + this.averages["red"] + ")"))
     var elapsed = Math.round(this.state.elapsed / 100)
     var display = (elapsed/10).toFixed(1)
     return (

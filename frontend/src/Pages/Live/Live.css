@@ -1,5 +1,17 @@
 .live {
-    
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 15vh 50vh 35vh;
+  grid-template-areas: 
+    "top"
+    "analytics"
+    "graph";
+}
+
+.top-row {
+  grid-area: top;
+  padding: 20px;
+  /* margin: 1.5% 2.5% 1.5%;  */
 }
 
 .timer {
@@ -20,17 +32,16 @@
 }
 
 .live-analytics {
+  padding: 0 14px;
+  grid-area: analytics;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: space-around;
 }
 
 .live-analytics div {
-  width: 20%;
-  height: 20vh;
-  margin-right: 2.5%;
-  margin-left: 2.5%;
+  width: 24.25%;
+  height: 23vh;
 }
 
 .analytics-box-1 {
@@ -63,4 +74,8 @@
 
 .analytics-box-8 {
   background: #9900cc;
+}
+
+.graph {
+  grid-area: graph;
 }

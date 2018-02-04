@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './D3Chart.css'
 
 class D3Chart extends Component {
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Live.css'
+import D3Chart from '../../Components/D3Chart/D3Chart'
 
 class Live extends Component {
   constructor() {
@@ -55,6 +56,7 @@ class Live extends Component {
           <div className="analytics-box-7"></div>
           <div className="analytics-box-8"></div>
         </div>
+        <D3Chart className="graph" />
       </div>
     )
   }

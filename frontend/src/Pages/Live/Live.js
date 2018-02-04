@@ -64,16 +64,24 @@ class Live extends Component {
   
   endSession() {
     window.sessionTime = this.state.elapsed
+    window.stopRecording()
     this.props.changePage('result')
   }
 
   tick() {
     if (!this.state.pause){
       const { captureSnapshotCounter } = this.state
-      if (captureSnapshotCounter % 3 === 0) {
+      if (captureSnapshotCounter % 3 === 0 && captureSnapshotCounter === 0) {
+        window.startRecording()
         this.setState({
           captureSnapshotCounter: this.state.captureSnapshotCounter + 1
         })
+      } else if (captureSnapshotCounter % 3 === 0 && captureSnapshotCounter !== 0) {
+        window.stopRecording()
+        this.setState({
+          captureSnapshotCounter: this.state.captureSnapshotCounter + 1
+        })
+        window.startRecording()
       } else {
         this.setState({
           captureSnapshotCounter: captureSnapshotCounter + 1

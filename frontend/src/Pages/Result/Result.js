@@ -50,6 +50,7 @@ class Result extends Component {
   getMaxOfArray(numArray) {
     return Math.max.apply(null, numArray);
   }
+
   maxIndex(emotion){
     var max = this.getMaxOfArray(this.averages[emotion].values);
     console.log("MAX INDEX FUNC")
@@ -57,10 +58,12 @@ class Result extends Component {
     console.log(max)
     return this.averages[emotion].values.indexOf(max);
   }
+
   findMax(emotion){
     console.log("FIND MAX FUNC")
     return this.averages[emotion].values[this.maxIndex(emotion)];
   }
+
   findMaxTime(emotion){
     return this.averages[emotion].times[this.maxIndex(emotion)];
   }
@@ -230,70 +233,62 @@ class Result extends Component {
             </div>
           </div>
           <div className="transcription">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam ultrices nisi, id imperdiet nisi volutpat eu. Aliquam est nunc, gravida in placerat ut, sodales ac nisi. Pellentesque blandit aliquam urna vel porttitor. Phasellus id turpis non tellus consequat tempus eget vitae turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent viverra odio sed diam egestas, nec imperdiet turpis venenatis. Donec consectetur erat id ipsum varius convallis. Nulla facilisi. Donec eu dolor orci. Cras placerat mauris sit amet massa ullamcorper lobortis. Fusce molestie, dolor in gravida sagittis, felis arcu consequat risus, a cursus dolor nisl ullamcorper turpis. In ut magna diam.
-
-            Cras vel lorem posuere, pulvinar dui eu, finibus felis. Proin nec velit vitae enim lacinia aliquam sed in felis. Aenean neque arcu, pharetra id faucibus non, gravida eu tortor. In mi leo, dignissim nec congue vitae, auctor sed velit. Proin a imperdiet ipsum, eu interdum sapien. Mauris venenatis, lacus vitae viverra bibendum, erat mi molestie nibh, non egestas mi erat et nisi. Mauris lacus nunc, commodo sit amet sapien quis, porta dictum mauris. Praesent mi purus, luctus ut urna eget, tempor pellentesque erat.
-
-            Sed rhoncus justo a magna luctus mollis. Proin ac risus vitae felis maximus finibus nec ac purus. Aliquam commodo lorem elit, vel dapibus diam laoreet nec. Fusce sed sapien sed turpis cursus faucibus et et augue. Phasellus pulvinar ex id tempor auctor. Quisque in vestibulum nunc, vitae venenatis tortor. Nulla ullamcorper scelerisque dolor in ultrices. Sed eu pretium leo, et varius dolor. Curabitur lobortis quis neque ut tempor. Aenean ante ante, sollicitudin eu leo sed, tincidunt faucibus nibh. Phasellus facilisis vitae lacus et vestibulum. Vivamus at posuere lectus. Phasellus vel placerat metus, quis dictum nibh. Praesent ligula ante, facilisis a luctus nec, vehicula sed eros. Sed tempor sodales ante, sit amet sodales metus fringilla vitae. Suspendisse volutpat ante eget odio sodales tincidunt.
-
-            Maecenas placerat risus urna, sit amet egestas lectus luctus vel. Nulla id interdum risus, in lobortis arcu. Etiam maximus ex diam, vitae tincidunt ligula blandit nec. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean varius venenatis odio eu blandit. Quisque interdum est vestibulum purus finibus, a vulputate nunc consequat. Aenean ornare justo at odio laoreet sodales. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec nisl dolor, pulvinar ut ipsum nec, aliquam auctor velit. Nam blandit eget erat suscipit suscipit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-
-            Suspendisse ultricies, justo sit amet ultricies egestas, sapien nibh mattis neque, non fermentum leo elit vel tellus. Fusce varius velit ut lorem convallis maximus. Suspendisse varius, enim eu rhoncus efficitur, risus diam sollicitudin lectus, eget molestie dolor ligula id nunc. Nulla facilisi. Morbi eu tempor dui. Aliquam erat volutpat. Nullam consectetur consectetur eros posuere eleifend. Curabitur quam felis, tempor eget placerat vel, auctor vitae est. Donec euismod tellus quis nulla condimentum aliquet. Nam sed malesuada purus, sed gravida diam. Praesent ut quam aliquet, ultricies enim sed, iaculis mauris. Donec a rutrum augue. Maecenas porta bibendum magna, eget vulputate mi gravida sed. Donec vel semper turpis. Morbi sit amet quam semper, scelerisque augue sed, placerat turpis.
+            {window.textContent}
           </div>
           <div className="max-values">
             <div className="max-grid">
               <div
                 className="max-box-1"
-                style={{ backgroundColor: ("rgba(230, 0, 0, " + (this.arrayAverage(this.averages['Anger'].values) / 100) + ")")}}
+                style={{ backgroundColor: ("rgba(230, 0, 0, " + (this.arrayAverage(this.averages['Anger'].values) / fullLength) + ")")}}
               >
                 <p className="analytic-name">Anger</p>
                 <p className="analytic-percentage">{(parseInt(this.findMax('Anger') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Anger")))}</p>
               </div>
               <div
                 className="max-box-2"
-                style={{ backgroundColor: ("rgba(255, 102, 0, " + (this.arrayAverage(this.averages['Contempt'].values) / 100) + ")")}}
+                style={{ backgroundColor: ("rgba(255, 102, 0, " + (this.arrayAverage(this.averages['Contempt'].values) / fullLength) + ")")}}
               >
                 <p className="analytic-name">Contempt</p>
                 <p className="analytic-percentage">{(parseInt(this.findMax('Contempt') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Contempt")))}</p>
               </div>
               <div
                 className="max-box-3"
-                style={{ backgroundColor: ("rgba(0, 0, 102, " + (this.arrayAverage(this.averages['Disgust'].values) / 100) + ")")}}
+                style={{ backgroundColor: ("rgba(0, 0, 102, " + (this.arrayAverage(this.averages['Disgust'].values) / fullLength) + ")")}}
               >
                 <p className="analytic-name">Disgust</p>
                 <p className="analytic-percentage">{(parseInt(this.findMax('Disgust') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Disgust")))}</p>
               </div>
               <div
                 className="max-box-4"
-                style={{ backgroundColor: ("rgba(230, 230, 0, " + (this.arrayAverage(this.averages['Fear'].values) / 100) + ")")}}
+                style={{ backgroundColor: ("rgba(230, 230, 0, " + (this.arrayAverage(this.averages['Fear'].values) / fullLength) + ")")}}
               >
                 <p className="analytic-name">Fear</p>
                 <p className="analytic-percentage">{(parseInt(this.findMax('Fear') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Fear")))}</p>
               </div>
               <div
                 className="max-box-5"
-                style={{ backgroundColor: ("rgba(42, 190, 42, " + (this.arrayAverage(this.averages['Happiness'].values) / 100) + ")")}}
+                style={{ backgroundColor: ("rgba(42, 190, 42, " + (this.arrayAverage(this.averages['Happiness'].values) / fullLength) + ")")}}
               >
                 <p className="analytic-name">Happiness</p>
                 <p className="analytic-percentage">{(parseInt(this.findMax('Happiness') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Happiness")))}</p>
               </div>
               <div
                 className="max-box-6"
-                style={{ backgroundColor: ("rgba(128, 128, 128, " + (this.arrayAverage(this.averages['Neutral'].values) / 100) + ")")}}
+                style={{ backgroundColor: ("rgba(128, 128, 128, " + (this.arrayAverage(this.averages['Neutral'].values) / fullLength) + ")")}}
               >
                 <p className="analytic-name">Neutral</p>
                 <p className="analytic-percentage">{(parseInt(this.findMax('Neutral') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Neutral")))}</p>
               </div>
               <div
                 className="max-box-7"
-                style={{ backgroundColor: ("rgba(0, 172, 230, " + (this.arrayAverage(this.averages['Sadness'].values) / 100) + ")")}}
+                style={{ backgroundColor: ("rgba(0, 172, 230, " + (this.arrayAverage(this.averages['Sadness'].values) / fullLength) + ")")}}
               >
                 <p className="analytic-name">Sadness</p>
                 <p className="analytic-percentage">{(parseInt(this.findMax('Sadness') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Sadness")))}</p>
               </div>
               <div
                 className="max-box-8"
-                style={{ backgroundColor: ("rgba(153, 0, 204, " + (this.arrayAverage(this.averages['Surprise'].values) / 100) + ")")}}
+                style={{ backgroundColor: ("rgba(153, 0, 204, " + (this.arrayAverage(this.averages['Surprise'].values) / fullLength) + ")")}}
               >
                 <p className="analytic-name">Surprise</p>
                 <p className="analytic-percentage">{(parseInt(this.findMax('Surprise') * 1000) * 1.0 / 10).toFixed(1)}% at {window.d3.time.format('%H:%M:%S')(new Date(this.findMaxTime("Surprise")))}</p>

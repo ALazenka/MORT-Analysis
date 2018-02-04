@@ -64,6 +64,7 @@ class Live extends Component {
   
   endSession() {
     window.sessionTime = this.state.elapsed
+    this.props.changePage('result')
   }
 
   tick() {

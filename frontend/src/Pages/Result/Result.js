@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
 import "./Result.css"
+import D3Final from '../../Components/D3Final/D3Final'
 
 class Result extends Component {
   constructor(){

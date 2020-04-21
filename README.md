@@ -1,7 +1,7 @@
 # MORTE-Analysis
-Real-time audience emotion monitoring, for presenters
+Real-time audience emotion and reaction monitoring
 
 
 ## Backend
 
-Currently being isolated into a Java based service, find [more information here](https://github.com/yiikou/morte.backend)
+The backend service has been moved to a [separate repository](https://github.com/yiikou/morte.backend).
